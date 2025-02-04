@@ -9,7 +9,9 @@ const { setupFdk } = require("@gofynd/fdk-extension-javascript/express");
 const { SQLiteStorage } = require("@gofynd/fdk-extension-javascript/express/storage");
 const sqliteInstance = new sqlite3.Database('session_storage.db');
 const productRouter = express.Router();
+const connectDB = require("./backend/db");
 
+connectDB(); // Connect to MongoDB
 
 const fdkExtension = setupFdk({
     api_key: process.env.EXTENSION_API_KEY,
