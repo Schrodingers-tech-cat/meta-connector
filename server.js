@@ -11,9 +11,11 @@ const {
 } = require("@gofynd/fdk-extension-javascript/express/storage");
 const sqliteInstance = new sqlite3.Database("session_storage.db");
 const productRouter = express.Router();
+const connectDB = require("./backend/db");
 
 const appId = process.env.FACEBOOK_APP_ID;
 const appSecret = process.env.FACEBOOK_APP_SECRET;
+connectDB();
 
 const fdkExtension = setupFdk({
   api_key: process.env.EXTENSION_API_KEY,
